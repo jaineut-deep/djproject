@@ -8,13 +8,18 @@ path_data_page: str = os.path.dirname(os.path.dirname(__file__)) + "/web/contact
 
 
 class MyServer(BaseHTTPRequestHandler):
+    """Класс, отвечающий за обработку входящих запросов от клиентов"""
 
     def __get_contacts(self) -> str:
+        """Метод, возвращающий содержание стартовой html-страницы веб-сервиса в виде строки"""
+
         with open(path_data_page, "r", encoding="utf-8") as contacts:
             content = contacts.read()
         return content
 
     def do_GET(self) -> None:
+        """Метод для обработки входящих GET-запросов"""
+
         page_content = self.__get_contacts()
         self.send_response(200)
         self.send_header("Content-type", "text/html")
@@ -22,7 +27,9 @@ class MyServer(BaseHTTPRequestHandler):
         self.wfile.write(bytes(page_content, "utf-8"))
 
     def do_POST(self) -> None:
-        content_length = int(self.headers['Content-Length'])
+        """Метод для обработки входящих POST-запросов и печати в консоль всех введенных пользователем данных"""
+
+        content_length = int(self.headers["Content-Length"])
         post_data = self.rfile.read(content_length)
         self.send_response(200)
         self.end_headers()
@@ -33,7 +40,7 @@ class MyServer(BaseHTTPRequestHandler):
 
 if __name__ == "__main__":
     server_address: Tuple[str, int] = (hostName, serverPort)
-    webServer = HTTPServer(server_address, MyServer)   # type: ignore[arg-type]
+    webServer = HTTPServer(server_address, MyServer)  # type: ignore[arg-type]
     print("Server started http://%s:%s" % (hostName, serverPort))
 
     try:
