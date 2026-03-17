@@ -21,10 +21,19 @@ class MyServer(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(bytes(page_content, "utf-8"))
 
+    def do_POST(self) -> None:
+        content_length = int(self.headers['Content-Length'])
+        post_data = self.rfile.read(content_length)
+        self.send_response(200)
+        self.end_headers()
+        response = b"POST request received with data: " + post_data
+        self.wfile.write(response)
+        print(str(post_data, "utf-8"))
+
 
 if __name__ == "__main__":
     server_address: Tuple[str, int] = (hostName, serverPort)
-    webServer = HTTPServer(server_address, MyServer)
+    webServer = HTTPServer(server_address, MyServer)   # type: ignore[arg-type]
     print("Server started http://%s:%s" % (hostName, serverPort))
 
     try:
