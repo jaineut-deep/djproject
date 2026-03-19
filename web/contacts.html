@@ -1,10 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css"
+          rel="stylesheet">
 </head>
-<body>
-
+<body class="d-flex w-100">
+    <div class="col-2 bg-dark vh-100 pe-0">
+        <nav class="nav nav-pills flex-sm-row">
+            <div class="row">
+                <div class="col-4">
+                    <div class="card mt-4 ms-4" style="width: 2rem; height: 2rem">
+                        <div class="card-body pt-0 pb-0 ps-2 pe-0">
+                            <h4>B</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 ps-0">
+                    <h4 class="text-light mt-4">Меню</h4>
+                </div>
+                <a class="nav-link text-light mx-3 my-1" href="#">Главная</a>
+                <a class="nav-link text-light mx-3 my-1" href="#">Категории</a>
+                <a class="nav-link text-light mx-3 my-1" href="#">Заказы</a>
+                <a class="nav-link rounded-pill text-light mx-3 my-1 fs-6 active" style="width: 80%" aria-current="page"
+                   href="#">Контакты</a>
+                <div class="dropdown position-absolute bottom-0">
+                    <button class="btn btn-prime dropdown-toggle text-light" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                    Пользователь
+                    </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Профиль</a></li>
+                    <li><a class="dropdown-item" href="#">Выход</a></li>
+                </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="col-10 flex-grow-1">
+        <div class="container-fluid">
+            <div class="row mt-5 mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="mt-5">Контакты</h2>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-6 d-flex justify-content-center align-items-center">
+                    <div class="card bg-body-light border-1 pt-3 pb-3 ps-3 pe-3 w-75">
+                        <div class="card-body text-black">
+                        <form method="post" action="http://localhost:8080/">
+                            <div class="mb-3">
+                                <label for="userName" class="form-label w-100">Имя</label>
+                                    <input class="form-control" id="userName" type="text" name="firstname">
+                            </div>
+                            <div class="mb-3">
+                                <label for="userEmail" class="form-label w-100">Почта</label>
+                                <div class="input-group">
+                                    <span class="input-group-text" id="basic-addon">@</span>
+                                    <input class="form-control" id="userEmail" type="email"
+                                           aria-describedby="basic-addon" name="email">
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label for="userMessage" class="form-label w-100">Сообщение</label>
+                                <textarea class="form-control" id="userMessage" rows="5" name="message"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Отправить</button>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 text-left ps-0 pe-5">
+                    <h3>Наши контакты</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                    <p>
+                        While these feedback styles cannot be styled with CSS, you can still customize the feedback
+                        text through JavaScript.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+</script>
 </body>
 </html>
