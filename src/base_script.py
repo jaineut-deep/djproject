@@ -1,6 +1,7 @@
 import os
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from typing import Tuple
+from urllib.parse import parse_qs
 
 hostName: str = "localhost"
 serverPort: int = 8080
@@ -35,7 +36,8 @@ class MyServer(BaseHTTPRequestHandler):
         self.end_headers()
         response = b"POST request received with data: " + post_data
         self.wfile.write(response)
-        print(str(post_data, "utf-8"))
+        body_post = parse_qs(post_data.decode("utf-8"))
+        print(body_post)
 
 
 if __name__ == "__main__":
